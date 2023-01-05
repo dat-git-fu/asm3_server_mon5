@@ -1,11 +1,10 @@
 {
   "name": "index",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
@@ -14,5 +13,15 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "nodemon": "^2.0.20"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dreemurgithub/server-asm3.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dreemurgithub/server-asm3/issues"
+  },
+  "homepage": "https://github.com/dreemurgithub/server-asm3#readme",
+  "description": ""
 }
