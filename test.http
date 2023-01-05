@@ -1,0 +1,16 @@
+PUT http://localhost:5000/products
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+{}
+
+###
+POST http://localhost:5000/products
+Content-Type: application/json
+
+{}
+
+###
+GET http://localhost:5000/products
+Accept: application/json
+
+###
