@@ -6,8 +6,8 @@ app.get('/',(req,res)=>{
     res.send('hello world')
 })
 app.get('/:id',(req,res)=>{
-
-    res.send('id')
+    console.log(req.params)
+    res.send(req.params.id)
 })
 
 app.listen(5000)
