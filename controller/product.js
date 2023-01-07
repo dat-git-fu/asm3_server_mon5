@@ -37,7 +37,8 @@ product.post('/products',async (req,res)=>{
         img4:req.body.img4,
         short_desc:req.body.short_desc,
         longDesc:req.body.longDesc,
-        price:req.body.price
+        price:req.body.price,
+        remaining: req.bod.remaining
     })
     await  prod.save()
     console.log(req.body)
