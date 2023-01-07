@@ -3,7 +3,8 @@ const product = express()
 const {Product_schema} = require('../data/mongo')
 const mongoose = require('mongoose')
 const {query} = require("express");
-const uri_mongo = process.env.uri
+//const uri_mongo = process.env.uri
+const uri_mongo = 'mongodb+srv://root:12acCm9hjMM@cluster0.4x27nex.mongodb.net/asm3'
 product.get('/products/pagination/:query',async (req,res)=>{
     await mongoose.connect(uri_mongo)
     const query = req.params.query

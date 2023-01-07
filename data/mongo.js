@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://root:12acCm9hjMM@cluster0.4x27nex.mongodb.net/asm3')
+const uri = 'mongodb+srv://root:12acCm9hjMM@cluster0.4x27nex.mongodb.net/asm3'
+mongoose.connect(uri)
 const Product_schema = new mongoose.Schema({
     name: String,
     category:String,
