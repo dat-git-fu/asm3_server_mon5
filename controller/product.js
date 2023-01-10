@@ -2,7 +2,7 @@ const express = require('express')
 const product = express()
 const {Product_schema} = require('../data/mongo')
 const mongoose = require('mongoose')
-const {query} = require("express");
+// const {query} = require("express");
 //const uri_mongo = process.env.uri
 const uri_mongo = 'mongodb+srv://root:12acCm9hjMM@cluster0.4x27nex.mongodb.net/asm3'
 product.get('/products/pagination/:query',async (req,res)=>{
@@ -27,6 +27,8 @@ product.get('/products/pagination/:query',async (req,res)=>{
     return
 })
 product.post('/products',async (req,res)=>{
+    res.header("Access-Control-Allow-Origin", "*");
+
     await mongoose.connect(uri_mongo)
     const prod = new Product_schema({
         name:req.body.name,
@@ -38,7 +40,7 @@ product.post('/products',async (req,res)=>{
         short_desc:req.body.short_desc,
         longDesc:req.body.longDesc,
         price:req.body.price,
-        remaining: req.bod.remaining
+        remaining: req.body.remaining
     })
     await  prod.save()
     console.log(req.body)
@@ -46,6 +48,7 @@ product.post('/products',async (req,res)=>{
 })
 
 product.get('/products',async (req,res)=>{
+    console.log(req.session)
     await mongoose.connect(uri_mongo)
     const array =await Product_schema.find({remaining:{$gt:0}})
     res.send(array)
@@ -60,7 +63,7 @@ product.get('/products/:id',async (req,res)=>{
 //     await mongoose.connecfind({$or:[{name}]})
 //     const query = req.params.query
 //     const array =await Product_schema.find({$or:[{name:{$regex:query}},{long_desc:{$regex:query}} ,{short_desc:{$regex:query}} ] })
-//     res.send(array)
-// })
+//     res.send(array)     ddfghdfhfghfghnfgnfgn   '=$% sdgsdgsdgsdgdsg %$# @#$  ' req.session.
+// }) user='aaaa' req.session.    res.cook('dfdsfsdf','admin')
 
 module.exports = product
