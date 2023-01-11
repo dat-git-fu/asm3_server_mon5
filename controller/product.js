@@ -59,11 +59,17 @@ product.get('/products/:id',async (req,res)=>{
     const product =await Product_schema.findById(id)
     res.send(product)
 })
-// product.get('/products/:query',async (req,res)=>{
-//     await mongoose.connecfind({$or:[{name}]})
-//     const query = req.params.query
-//     const array =await Product_schema.find({$or:[{name:{$regex:query}},{long_desc:{$regex:query}} ,{short_desc:{$regex:query}} ] })
-//     res.send(array)     ddfghdfhfghfghnfgnfgn   '=$% sdgsdgsdgsdgdsg %$# @#$  ' req.session.
-// }) user='aaaa' req.session.    res.cook('dfdsfsdf','admin')
+
+product.get('/admin/products',async (req,res)=>{
+    if (req.session.role!=='admin') {
+        res.send('Not admin');return
+    } else {
+
+        await mongoose.connect(uri_mongo)
+        const array =await Product_schema.find()
+        console.log(array)
+        res.send(array)
+    }
+})
 
 module.exports = product
