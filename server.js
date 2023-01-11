@@ -4,7 +4,6 @@ require('dotenv').config()
 
 app.use((req, res, next) => {
         res.header('Access-Control-Allow-Credentials', true ) // work, somehow, to stop cors block
-        res.header
     next();
 })
 

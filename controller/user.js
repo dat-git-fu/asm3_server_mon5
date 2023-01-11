@@ -38,7 +38,7 @@ user_route.get('/users/:id',async (req,res)=>{
     const result =await User_schema.findById(req.params.id)    // do front end của đề viết bậy nên làm như này, dùng cái này để set sesssion
     req.session.role = result.role
     console.log('call id '+ req.params.id)
-    res.send(result.name)
+    res.send(result.fullname)
 })
 user_route.get('/signout',(req,res)=>{
     req.session.destroy()
