@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 require('dotenv').config()
 // const origin = ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:5000']
-const origin = ['https://asm3-mon5.web.app', 'https://admin-r-asm3-mon5.vercel.app/', 'https://asm3-mon5.firebaseapp.com']
+const origin = ['https://asm3-mon5.web.app', 'https://asm-3admin-mon5.web.app', 'https://asm3-mon5.firebaseapp.com']
 app.use((req, res, next) => {
 
     if (origin.includes(req.get('origin'))) {
