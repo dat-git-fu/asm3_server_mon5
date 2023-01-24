@@ -3,7 +3,7 @@ const mongoose = require('mongoose'); const uri = 'mongodb+srv://root:12acCm9hjM
 const {User_schema, Order_schema} = require('../data/mongo')
 
 history_route.get('/histories/:query',async (req,res)=>{
-    await mongoose.connect(uri)
+    
     const query = req.params.query
     const text_arr_new = query.split('&').map(el=>el.split('='))
     const query_obj = {}
@@ -14,7 +14,7 @@ history_route.get('/histories/:query',async (req,res)=>{
     res.send(array)
 })
 history_route.get('/histories/order/:id',async (req,res)=>{
-    await mongoose.connect(uri)
+    
 
     const order = await Order_schema.findById(req.params.id)
     // const array = order.list_order

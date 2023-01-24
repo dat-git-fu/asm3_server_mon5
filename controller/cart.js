@@ -7,7 +7,7 @@ const fs = require('fs');const path = require('path')
 const sgMail = require('@sendgrid/mail')
 sgMail.setApiKey('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')
 cart_route.post('/carts/add/:query',async (req,res)=>{
-    await mongoose.connect(uri)
+    
     const query = req.params.query
     const text_arr_new = query.split('&').map(el=>el.split('='))
     const query_obj = {}
@@ -27,7 +27,7 @@ cart_route.post('/carts/add/:query',async (req,res)=>{
     res.send('added')
 })
 cart_route.put('/carts/update/:query',async (req,res)=>{
-    await mongoose.connect(uri)
+    
     const query = req.params.query
     const text_arr_new = query.split('&').map(el=>el.split('='))
     const query_obj = {}
@@ -43,7 +43,7 @@ cart_route.put('/carts/update/:query',async (req,res)=>{
 
 })
 cart_route.delete('/carts/delete/:query',async (req,res)=>{
-    await mongoose.connect(uri)
+    
     const query = req.params.query
     const text_arr_new = query.split('&').map(el=>el.split('='))
     const query_obj = {}
@@ -63,7 +63,7 @@ cart_route.delete('/carts/delete/:query',async (req,res)=>{
 
 })
 cart_route.get('/carts/:query',async (req,res)=>{  // send infor của user cart
-    await mongoose.connect(uri)
+    
     const query = req.params.query
     const text_arr_new = query.split('&').map(el=>el.split('='))
     const query_obj = {}
@@ -81,7 +81,7 @@ cart_route.get('/carts/:query',async (req,res)=>{  // send infor của user cart
 
 })
 cart_route.post('/email/:query',async (req,res)=>{
-    await mongoose.connect(uri)
+    
     const query = req.params.query
     const text_arr_new = query.split('&').map(el=>el.split('='))
     const query_obj = {}

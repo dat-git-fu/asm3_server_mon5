@@ -2,7 +2,7 @@ const user_route = require('express')()
 const mongoose = require('mongoose'); const uri = 'mongodb+srv://root:12acCm9hjMM@cluster0.4x27nex.mongodb.net/asm3'
 const {User_schema} = require('../data/mongo')
 user_route.post('/users/signup/:query',async (req,res)=>{
-    await mongoose.connect(uri)
+    
     const query = req.params.query
     const text_arr_new = query.split('&').map(el=>el.split('='))
     const query_obj = {}
@@ -28,12 +28,12 @@ user_route.post('/users/signup/:query',async (req,res)=>{
     // res.redirect(req.get('origin') +'/signin')
 })
 user_route.get('/users',async (req,res)=>{  // đây là route mà front end sign in @@
-    await mongoose.connect(uri) // frontend dùng code nào đó mà tìm hết cả cả toàn bộ trong dữ liệu
+     // frontend dùng code nào đó mà tìm hết cả cả toàn bộ trong dữ liệu
     const array = await User_schema.find()
     res.send(array)
 })
 user_route.get('/users/:id',async (req,res)=>{
-    await mongoose.connect(uri)
+    
     console.log(req.session)
     const result =await User_schema.findById(req.params.id)    // do front end của đề viết bậy nên làm như này, dùng cái này để set sesssion
     req.session.role = result.role
@@ -43,7 +43,7 @@ user_route.get('/users/:id',async (req,res)=>{
 user_route.get('/signout',(req,res)=>{
     req.session.destroy()
     res.clearCookie('connect.sid')
-    res.send('signout')
+    res.send({message: 'signout'})
 })
 
 module.exports = user_route
